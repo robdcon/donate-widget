@@ -32,10 +32,10 @@ export default function DonateWidget() {
   // Donation type state
   const [donationType, setDonationType] = useState('one-time');
   
-  // Amount state
-  const [selectedAmount, setSelectedAmount] = useState(null);
+  // Amount state - Set middle option (£25) as default
+  const [selectedAmount, setSelectedAmount] = useState(25);
   const [customAmount, setCustomAmount] = useState('');
-  const [finalAmount, setFinalAmount] = useState(null);
+  const [finalAmount, setFinalAmount] = useState(25);
   
   // Payment flow state
   const [isComplete, setIsComplete] = useState(false);
@@ -179,14 +179,7 @@ export default function DonateWidget() {
         onCustomAmountChange={handleCustomAmountChange}
       />
 
-      {/* Amount Error */}
-      {amountError && (
-        <div className={styles['error-message']} role="alert">
-          {amountError}
-        </div>
-      )}
-
-      {/* Impact Message */}
+      {/* Impact Message - Directly under amount selection */}
       {finalAmount && !amountError && (
         <div className={styles['impact-message']}>
           {impactLoading ? (
@@ -197,6 +190,13 @@ export default function DonateWidget() {
           ) : (
             <p>{impactStatement}</p>
           )}
+        </div>
+      )}
+
+      {/* Amount Error */}
+      {amountError && (
+        <div className={styles['error-message']} role="alert">
+          {amountError}
         </div>
       )}
 

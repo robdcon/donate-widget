@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GTM Integration Test - Both Methods</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #f5f5f5;
+    }
+    
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    
+    header {
+      background: linear-gradient(135deg, #00853E 0%, #006B32 100%);
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+      margin-bottom: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 133, 62, 0.3);
+    }
+    
+    h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+    
+    .section {
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+      margin-bottom: 40px;
+    }
+    
+    h2 {
+      color: #00853E;
+      margin-bottom: 20px;
+      font-size: 28px;
+      border-bottom: 3px solid #00853E;
+      padding-bottom: 10px;
+    }
+    
+    .badge {
+      display: inline-block;
+      background: #00853E;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+    
+    .info-box {
+      background: #E3F2FD;
+      border-left: 4px solid #2196F3;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 4px;
+    }
+    
+    .success-box {
+      background: #E8F5E9;
+      border-left: 4px solid #4CAF50;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 4px;
+    }
+    
+    pre {
+      background: #1e1e1e;
+      color: #d4d4d4;
+      padding: 20px;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-size: 14px;
+      line-height: 1.6;
+      margin: 20px 0;
+    }
+    
+    code {
+      font-family: 'Courier New', monospace;
+    }
+    
+    .arrow {
+      font-size: 24px;
+      text-align: center;
+      color: #00853E;
+      margin: 20px 0;
+    }
+    
+    ul {
+      margin-left: 20px;
+      line-height: 2;
+    }
+    
+    .divider {
+      height: 40px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🎯 GTM Integration Test</h1>
+      <p style="font-size: 18px; margin-top: 10px;">Testing both integration methods</p>
+    </header>
+    
+    <!-- Method 1: Floating Button -->
+    <div class="section">
+      <span class="badge">Method 1</span>
+      <h2>🔘 Floating Button</h2>
+      
+      <div class="success-box">
+        <strong>✓ Active!</strong> Look for the floating button in the bottom-right corner of this page.
+      </div>
+      
+      <h3>GTM Code:</h3>
+      <pre><code>&lt;script src="https://donate-widget-7rbvheu4a-robdcons-projects.vercel.app/donate-button.js"&gt;&lt;/script&gt;</code></pre>
+      
+      <h3>Features:</h3>
+      <ul>
+        <li>Appears on every page</li>
+        <li>Fixed position (bottom-right)</li>
+        <li>Opens in modal overlay</li>
+        <li>Non-intrusive</li>
+        <li>ESC key to close</li>
+      </ul>
+      
+      <h3>Test It:</h3>
+      <ul>
+        <li>1. Look for button in bottom-right corner</li>
+        <li>2. Click it to open modal</li>
+        <li>3. Press ESC to close</li>
+        <li>4. Click backdrop to close</li>
+      </ul>
+    </div>
+    
+    <div class="divider"></div>
+    
+    <!-- Method 2: Inline Section -->
+    <div class="section">
+      <span class="badge">Method 2</span>
+      <h2>📄 Inline Section</h2>
+      
+      <div class="info-box">
+        <strong>What you're seeing:</strong> The widget is injected directly into the page below, inside the <code>#donate-widget</code> element.
+      </div>
+      
+      <h3>GTM Code:</h3>
+      <pre><code>&lt;script&gt;
+  window.MACMILLAN_DONATE_SECTION_CONFIG = {
+    selector: '#donate-widget',
+    wrapper: true,
+    autoResize: true
+  };
+&lt;/script&gt;
+&lt;script src="https://donate-widget-7rbvheu4a-robdcons-projects.vercel.app/donate-section.js"&gt;&lt;/script&gt;</code></pre>
+      
+      <h3>Page HTML Needed:</h3>
+      <pre><code>&lt;div id="donate-widget"&gt;&lt;/div&gt;</code></pre>
+      
+      <h3>Features:</h3>
+      <ul>
+        <li>Embedded in page content</li>
+        <li>Inject at specific location</li>
+        <li>No modal overlay</li>
+        <li>Part of page flow</li>
+        <li>Auto-resize to content</li>
+      </ul>
+      
+      <div class="arrow">↓ Widget appears below ↓</div>
+      
+      <!-- THIS IS WHERE THE WIDGET WILL BE INJECTED -->
+      <div id="donate-widget" style="min-height: 100px;"></div>
+      
+      <div class="arrow">↑ Widget above ↑</div>
+      
+      <h3>Console Commands:</h3>
+      <pre><code>// Check if loaded
+console.log(window.MacmillanDonateSection);
+
+// Remove widget
+window.MacmillanDonateSection.remove();
+
+// Re-inject widget
+window.MacmillanDonateSection.inject();</code></pre>
+    </div>
+    
+    <!-- Instructions -->
+    <div class="section">
+      <h2>📋 What to Check</h2>
+      
+      <h3>1. Floating Button (Method 1):</h3>
+      <ul>
+        <li>✓ Button visible in bottom-right corner</li>
+        <li>✓ Has heart icon and "Donate" text</li>
+        <li>✓ Hover effect works</li>
+        <li>✓ Opens modal when clicked</li>
+        <li>✓ Modal is centered</li>
+        <li>✓ Widget loads inside modal</li>
+      </ul>
+      
+      <h3>2. Inline Section (Method 2):</h3>
+      <ul>
+        <li>✓ Widget appears in the section above</li>
+        <li>✓ Has styled wrapper (padding, background)</li>
+        <li>✓ Widget is fully visible</li>
+        <li>✓ Auto-resizes with content</li>
+        <li>✓ Scrolls with page</li>
+      </ul>
+      
+      <h3>3. Browser Console (F12):</h3>
+      <ul>
+        <li>✓ No JavaScript errors</li>
+        <li>✓ "Macmillan Donate Button initialized"</li>
+        <li>✓ "Macmillan Donate Section initialized"</li>
+        <li>✓ Both scripts loaded successfully</li>
+      </ul>
+    </div>
+    
+    <div class="section">
+      <h2>🚀 Next Steps</h2>
+      
+      <p><strong>If both methods work on this page:</strong></p>
+      <ol style="margin-left: 20px; line-height: 2;">
+        <li>Copy the GTM code for the method(s) you want</li>
+        <li>Create Custom HTML tag in GTM</li>
+        <li>Set appropriate trigger (All Pages for floating button, specific pages for inline)</li>
+        <li>Test in GTM Preview mode</li>
+        <li>Publish!</li>
+      </ol>
+    </div>
+  </div>
+  
+  <!-- Load Method 1: Floating Button -->
+  <script src="https://donate-widget-7rbvheu4a-robdcons-projects.vercel.app/donate-button.js"></script>
+  
+  <!-- Load Method 2: Inline Section -->
+  <script>
+    window.MACMILLAN_DONATE_SECTION_CONFIG = {
+      selector: '#donate-widget',
+      wrapper: true,
+      autoResize: true,
+      minHeight: '600px'
+    };
+  </script>
+  <script src="https://donate-widget-7rbvheu4a-robdcons-projects.vercel.app/donate-section.js"></script>
+</body>
+</html>
