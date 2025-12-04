@@ -8,6 +8,7 @@ import AmountSelector from './AmountSelector';
 import PaymentSection from './PaymentSection';
 import SuccessMessage from './SuccessMessage';
 import { useImpactStatement } from '../hooks/useImpactStatement';
+import { useIFrameCommunication } from '../hooks/useIFrameCommunication';
 import { validateAmount, trackEvent } from '../utils/mockApi';
 
 // Load Stripe (use test key for POC)
@@ -45,6 +46,9 @@ export default function DonateWidget() {
   
   // Fetch dynamic impact statement from API
   const { statement: impactStatement, loading: impactLoading } = useImpactStatement(finalAmount, donationType);
+  
+  // Enable iframe communication (auto-resize, donation events)
+  useIFrameCommunication(isComplete, donationData);
 
   /**
    * Track widget load

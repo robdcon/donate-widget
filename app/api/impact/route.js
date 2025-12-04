@@ -1,6 +1,9 @@
 import { NextResponse } from 'next/server';
 import { getImpactStatementConfig } from '../../../utils/impactStatementConfig';
 
+// Mark this route as dynamic (not static)
+export const dynamic = 'force-dynamic';
+
 /**
  * API Route: Get Impact Statement
  * GET /api/impact?amount={amount}&type={donationType}

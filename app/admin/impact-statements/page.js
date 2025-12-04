@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { IMPACT_STATEMENT_RANGES } from '../../utils/impactStatementConfig';
+import { IMPACT_STATEMENT_RANGES } from '../../../utils/impactStatementConfig';
 import styles from './admin.module.scss';
 
 /**
