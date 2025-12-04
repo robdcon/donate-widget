@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Macmillan Donate Button - GTM Implementation Guide</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #f5f5f5;
+    }
+    
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    
+    header {
+      background: #00853E;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+      margin-bottom: 40px;
+      border-radius: 8px;
+    }
+    
+    h1 {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+    
+    h2 {
+      font-size: 24px;
+      margin-top: 40px;
+      margin-bottom: 20px;
+      color: #00853E;
+      border-bottom: 2px solid #00853E;
+      padding-bottom: 10px;
+    }
+    
+    h3 {
+      font-size: 18px;
+      margin-top: 20px;
+      margin-bottom: 10px;
+      color: #006B32;
+    }
+    
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      margin-bottom: 30px;
+    }
+    
+    pre {
+      background: #f8f8f8;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 20px;
+      overflow-x: auto;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    
+    code {
+      background: #f8f8f8;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-family: 'Courier New', monospace;
+      font-size: 14px;
+    }
+    
+    .step {
+      background: #E8F5E9;
+      padding: 15px 20px;
+      border-left: 4px solid #00853E;
+      margin: 20px 0;
+      border-radius: 4px;
+    }
+    
+    .step strong {
+      color: #00853E;
+    }
+    
+    ul, ol {
+      margin-left: 20px;
+      margin-bottom: 20px;
+    }
+    
+    li {
+      margin-bottom: 10px;
+    }
+    
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin: 20px 0;
+    }
+    
+    .feature {
+      background: #E8F5E9;
+      padding: 20px;
+      border-radius: 6px;
+    }
+    
+    .feature h4 {
+      color: #00853E;
+      margin-bottom: 10px;
+    }
+    
+    .warning {
+      background: #FFF3CD;
+      border-left: 4px solid #FFC107;
+      padding: 15px 20px;
+      margin: 20px 0;
+      border-radius: 4px;
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+    
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    
+    th {
+      background: #00853E;
+      color: white;
+      font-weight: 600;
+    }
+    
+    tr:hover {
+      background: #f8f8f8;
+    }
+    
+    .demo-section {
+      background: linear-gradient(135deg, #00853E 0%, #006B32 100%);
+      color: white;
+      padding: 40px;
+      border-radius: 8px;
+      text-align: center;
+      margin: 40px 0;
+    }
+    
+    .demo-section h2 {
+      color: white;
+      border: none;
+      margin-top: 0;
+    }
+    
+    .demo-section p {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🎯 Macmillan Floating Donate Button</h1>
+      <p>Google Tag Manager Implementation Guide</p>
+    </header>
+    
+    <div class="card">
+      <h2>📋 Quick Start - GTM Implementation</h2>
+      
+      <div class="step">
+        <strong>Step 1:</strong> Log in to Google Tag Manager
+      </div>
+      
+      <div class="step">
+        <strong>Step 2:</strong> Create a new Custom HTML Tag
+        <ul>
+          <li>Click "Tags" in the left sidebar</li>
+          <li>Click "New"</li>
+          <li>Name it: "Macmillan Donate Button"</li>
+          <li>Click "Tag Configuration"</li>
+          <li>Select "Custom HTML"</li>
+        </ul>
+      </div>
+      
+      <div class="step">
+        <strong>Step 3:</strong> Copy and paste this code into the HTML field:
+      </div>
+      
+      <pre><code>&lt;script src="https://donate-widget-7rbvheu4a-robdcons-projects.vercel.app/donate-button.js"&gt;&lt;/script&gt;</code></pre>
+      
+      <div class="step">
+        <strong>Step 4:</strong> Set up the trigger
+        <ul>
+          <li>Click "Triggering"</li>
+          <li>Select "All Pages" (or create a custom trigger for specific pages)</li>
+        </ul>
+      </div>
+      
+      <div class="step">
+        <strong>Step 5:</strong> Save and publish
+        <ul>
+          <li>Click "Save"</li>
+          <li>Click "Submit" in the top right</li>
+          <li>Add a version name and description</li>
+          <li>Click "Publish"</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="card">
+      <h2>⚙️ Configuration Options</h2>
+      
+      <h3>Position Options</h3>
+      <p>The button appears in the bottom-right by default. You can customize the position by adding configuration:</p>
+      
+      <pre><code>&lt;script&gt;
+  // Set configuration before loading the script
+  window.MACMILLAN_DONATE_CONFIG = {
+    position: 'bottom-right', // 'bottom-right', 'bottom-left', 'top-right', 'top-left'
+    buttonText: 'Donate',
+    buttonColor: '#00853E',
+    buttonHoverColor: '#006B32'
+  };
+&lt;/script&gt;
+&lt;script src="https://donate-widget-7rbvheu4a-robdcons-projects.vercel.app/donate-button.js"&gt;&lt;/script&gt;</code></pre>
+      
+      <h3>Configuration Parameters</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Type</th>
+            <th>Default</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>position</code></td>
+            <td>String</td>
+            <td>'bottom-right'</td>
+            <td>Button position on the page</td>
+          </tr>
+          <tr>
+            <td><code>buttonText</code></td>
+            <td>String</td>
+            <td>'Donate'</td>
+            <td>Text displayed on the button</td>
+          </tr>
+          <tr>
+            <td><code>buttonColor</code></td>
+            <td>String</td>
+            <td>'#00853E'</td>
+            <td>Button background color</td>
+          </tr>
+          <tr>
+            <td><code>buttonHoverColor</code></td>
+            <td>String</td>
+            <td>'#006B32'</td>
+            <td>Button color on hover</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <div class="card">
+      <h2>🎨 Features</h2>
+      
+      <div class="feature-grid">
+        <div class="feature">
+          <h4>🎯 Zero Conflict</h4>
+          <p>Self-contained script that won't interfere with your site's JavaScript or CSS</p>
+        </div>
+        
+        <div class="feature">
+          <h4>📱 Mobile Responsive</h4>
+          <p>Automatically adapts to mobile devices with optimized sizing</p>
+        </div>
+        
+        <div class="feature">
+          <h4>♿ Accessible</h4>
+          <p>Keyboard navigation support (ESC to close) and ARIA labels</p>
+        </div>
+        
+        <div class="feature">
+          <h4>🎬 Smooth Animations</h4>
+          <p>Professional fade-in and scale effects for modal</p>
+        </div>
+        
+        <div class="feature">
+          <h4>📊 GTM Events</h4>
+          <p>Automatically pushes events to dataLayer for tracking</p>
+        </div>
+        
+        <div class="feature">
+          <h4>🔒 Secure</h4>
+          <p>Loaded via iframe for security isolation</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card">
+      <h2>📊 Google Analytics Tracking</h2>
+      
+      <p>The button automatically pushes events to GTM's dataLayer:</p>
+      
+      <h3>Events Pushed:</h3>
+      <ul>
+        <li><code>donate_modal_opened</code> - When the donate modal is opened</li>
+        <li><code>donate_modal_closed</code> - When the modal is closed</li>
+        <li><code>donation_complete</code> - When a donation is successfully completed (from widget)</li>
+      </ul>
+      
+      <h3>Setting up GA4 Events:</h3>
+      <div class="step">
+        <strong>In GTM:</strong>
+        <ol>
+          <li>Create a new GA4 Event Tag</li>
+          <li>Set Event Name to: <code>{{Event}}</code></li>
+          <li>Set trigger to: Custom Event matching the event names above</li>
+        </ol>
+      </div>
+    </div>
+    
+    <div class="card">
+      <h2>🧪 Testing</h2>
+      
+      <h3>1. Preview Mode</h3>
+      <ol>
+        <li>In GTM, click "Preview" in the top right</li>
+        <li>Enter your website URL</li>
+        <li>Look for the floating donate button</li>
+        <li>Click it to test the modal</li>
+      </ol>
+      
+      <h3>2. Debug Console</h3>
+      <p>Open your browser's console (F12) and look for:</p>
+      <pre><code>Macmillan Donate Button initialized</code></pre>
+      
+      <h3>3. Manual Control</h3>
+      <p>You can control the button via JavaScript console:</p>
+      <pre><code>// Open the modal programmatically
+window.MacmillanDonateButton.open();
+
+// Close the modal
+window.MacmillanDonateButton.close();
+
+// Access configuration
+console.log(window.MacmillanDonateButton.config);</code></pre>
+    </div>
+    
+    <div class="card">
+      <h2>🚀 Advanced: Conditional Loading</h2>
+      
+      <h3>Load Only on Specific Pages</h3>
+      <p>In GTM, create a custom trigger:</p>
+      
+      <div class="step">
+        <strong>Example 1:</strong> Only on blog posts
+        <ul>
+          <li>Trigger Type: Page View</li>
+          <li>This trigger fires on: Some Page Views</li>
+          <li>Page URL contains: <code>/blog/</code></li>
+        </ul>
+      </div>
+      
+      <div class="step">
+        <strong>Example 2:</strong> Exclude from donation pages
+        <ul>
+          <li>Trigger Type: Page View</li>
+          <li>This trigger fires on: Some Page Views</li>
+          <li>Page URL does NOT contain: <code>/donate</code></li>
+        </ul>
+      </div>
+      
+      <h3>A/B Testing with GTM Variables</h3>
+      <pre><code>&lt;script&gt;
+  // Use GTM variables for A/B testing button position
+  var buttonPosition = {{ButtonPositionVariable}}; // Define this variable in GTM
+  
+  window.MACMILLAN_DONATE_CONFIG = {
+    position: buttonPosition || 'bottom-right'
+  };
+&lt;/script&gt;
+&lt;script src="https://donate-widget-7rbvheu4a-robdcons-projects.vercel.app/donate-button.js"&gt;&lt;/script&gt;</code></pre>
+    </div>
+    
+    <div class="card">
+      <h2>❓ Troubleshooting</h2>
+      
+      <h3>Button doesn't appear</h3>
+      <ul>
+        <li>Check GTM Preview mode - is the tag firing?</li>
+        <li>Look for console errors (F12)</li>
+        <li>Verify the script URL is correct</li>
+        <li>Check if another element has a higher z-index</li>
+      </ul>
+      
+      <h3>Modal doesn't open</h3>
+      <ul>
+        <li>Check browser console for JavaScript errors</li>
+        <li>Verify the widget URL is accessible</li>
+        <li>Check if your CSP (Content Security Policy) blocks iframes</li>
+      </ul>
+      
+      <h3>Style conflicts</h3>
+      <ul>
+        <li>The button uses inline styles to avoid CSS conflicts</li>
+        <li>If you need to override, add custom CSS with <code>!important</code></li>
+      </ul>
+      
+      <div class="warning">
+        <strong>⚠️ Note:</strong> The button script is self-contained and prevents multiple initializations. If you need to reload it, refresh the page.
+      </div>
+    </div>
+    
+    <div class="demo-section">
+      <h2>🎉 Live Demo</h2>
+      <p>You're viewing a live demo! Look for the floating button in the corner of this page.</p>
+      <p style="font-size: 14px; opacity: 0.9; margin-top: 20px;">
+        The button loads the actual donation widget from your deployed app.
+      </p>
+    </div>
+    
+    <div class="card">
+      <h2>📞 Support</h2>
+      <p>For technical support or questions:</p>
+      <ul>
+        <li>Check the console for error messages</li>
+        <li>Verify GTM tag is firing in Preview mode</li>
+        <li>Test on different browsers and devices</li>
+      </ul>
+    </div>
+  </div>
+  
+  <!-- Load the actual button for demo -->
+  <script src="https://donate-widget-7rbvheu4a-robdcons-projects.vercel.app/donate-button.js"></script>
+</body>
+</html>
