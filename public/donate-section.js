@@ -30,7 +30,7 @@
   
   // Default configuration
   const defaultConfig = {
-    selector: '#donate-widget',  // CSS selector for injection point
+    selector: '.video-container',  // CSS selector for injection point
     position: 'beforeend',       // beforebegin, afterbegin, beforeend, afterend
     amount: null,                // Pre-fill amount (e.g., 25)
     type: null,                  // Pre-fill type ('one-time' or 'monthly')
@@ -104,6 +104,8 @@
    */
   function injectWidget() {
     const targetElement = document.querySelector(config.selector);
+
+    console.log('Target:', targetElement);
     
     if (!targetElement) {
       console.error(`Macmillan Donate Section: Target element not found: ${config.selector}`);

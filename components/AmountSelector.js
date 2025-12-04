@@ -16,7 +16,7 @@ export default function AmountSelector({
   onAmountSelect, 
   onCustomAmountChange 
 }) {
-  const presetAmounts = [15, 25, 50, 100];
+  const presetAmounts = [15, 25, 50];
 
   return (
     <div className={styles['amount-selector']}>

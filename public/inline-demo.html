@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inline Section Demo - Working Example</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #f5f5f5;
+      padding: 20px;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    header {
+      background: linear-gradient(135deg, #00853E 0%, #006B32 100%);
+      color: white;
+      padding: 40px;
+      text-align: center;
+      margin-bottom: 40px;
+      border-radius: 12px;
+    }
+    
+    h1 {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+    
+    .demo-card {
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+      margin-bottom: 30px;
+    }
+    
+    h2 {
+      color: #00853E;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #00853E;
+      padding-bottom: 10px;
+    }
+    
+    .info-box {
+      background: #E8F5E9;
+      border-left: 4px solid #00853E;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 4px;
+    }
+    
+    .warning-box {
+      background: #FFF3CD;
+      border-left: 4px solid #FFC107;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 4px;
+    }
+    
+    pre {
+      background: #1e1e1e;
+      color: #d4d4d4;
+      padding: 20px;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-size: 14px;
+      line-height: 1.6;
+      margin: 20px 0;
+    }
+    
+    code {
+      font-family: 'Courier New', monospace;
+    }
+    
+    .widget-placeholder {
+      background: #f8f8f8;
+      border: 2px dashed #00853E;
+      border-radius: 8px;
+      padding: 40px;
+      margin: 30px 0;
+      text-align: center;
+      color: #999;
+      min-height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    /* The widget will inject here and replace the placeholder styles */
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>✅ Working Inline Section Example</h1>
+      <p>Donation widget injected directly into the page</p>
+    </header>
+    
+    <div class="demo-card">
+      <h2>Example 1: Basic Inline Widget</h2>
+      
+      <div class="info-box">
+        <strong>What you're seeing:</strong> The donation widget is injected into the <code>#donate-widget</code> element below using the inline section script.
+      </div>
+      
+      <h3>GTM Code Used:</h3>
+      <pre><code>&lt;script&gt;
+  window.MACMILLAN_DONATE_SECTION_CONFIG = {
+    selector: '#donate-widget',
+    wrapper: true,
+    autoResize: true
+  };
+&lt;/script&gt;
+&lt;script src="https://donate-widget-7rbvheu4a-robdcons-projects.vercel.app/donate-section.js"&gt;&lt;/script&gt;</code></pre>
+      
+      <h3>Page HTML:</h3>
+      <pre><code>&lt;div id="donate-widget"&gt;&lt;/div&gt;</code></pre>
+      
+      <div class="warning-box">
+        <strong>📍 Widget appears below:</strong>
+      </div>
+      
+      <!-- Widget injection point -->
+      <div id="donate-widget">
+        <div class="widget-placeholder">
+          Widget will load here...
+        </div>
+      </div>
+    </div>
+    
+    <div class="demo-card">
+      <h2>How It Works</h2>
+      
+      <ol style="margin-left: 20px; line-height: 2;">
+        <li>Script loads when page loads</li>
+        <li>Finds the element with selector <code>#donate-widget</code></li>
+        <li>Creates an iframe with the widget</li>
+        <li>Injects it into the target element</li>
+        <li>Auto-resizes based on widget height</li>
+      </ol>
+      
+      <div class="info-box">
+        <strong>Open browser console (F12) to see:</strong>
+        <ul style="margin-left: 20px; margin-top: 10px;">
+          <li>"Macmillan Donate Section initialized"</li>
+          <li>GTM event: <code>donate_widget_injected</code></li>
+          <li>Configuration object</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="demo-card">
+      <h2>Console Commands</h2>
+      
+      <p>Try these in your browser console (F12):</p>
+      
+      <pre><code>// Check if loaded
+console.log(window.MacmillanDonateSection);
+
+// View configuration
+console.log(window.MacmillanDonateSection.config);
+
+// Remove widget
+window.MacmillanDonateSection.remove();
+
+// Re-inject widget
+window.MacmillanDonateSection.inject();
+
+// Update config and reload
+window.MacmillanDonateSection.updateConfig({
+  amount: 100,
+  type: 'one-time'
+});</code></pre>
+    </div>
+    
+    <div class="demo-card">
+      <h2>GTM Setup Instructions</h2>
+      
+      <h3>Step 1: Add target element to your page</h3>
+      <pre><code>&lt;div id="donate-widget"&gt;&lt;/div&gt;</code></pre>
+      
+      <h3>Step 2: Create GTM Custom HTML tag</h3>
+      <pre><code>&lt;script&gt;
+  window.MACMILLAN_DONATE_SECTION_CONFIG = {
+    selector: '#donate-widget'
+  };
+&lt;/script&gt;
+&lt;script src="https://donate-widget-7rbvheu4a-robdcons-projects.vercel.app/donate-section.js"&gt;&lt;/script&gt;</code></pre>
+      
+      <h3>Step 3: Set trigger</h3>
+      <p>Trigger: Page Path contains <code>/donate</code> (or whatever your donate page is)</p>
+      
+      <h3>Step 4: Publish</h3>
+      <p>Test in Preview mode, then publish!</p>
+    </div>
+  </div>
+  
+  <!-- Configure and load the inline section script -->
+  <script>
+    window.MACMILLAN_DONATE_SECTION_CONFIG = {
+      selector: '#donate-widget',
+      wrapper: true,
+      autoResize: true,
+      minHeight: '600px'
+    };
+  </script>
+  <script src="https://donate-widget-7rbvheu4a-robdcons-projects.vercel.app/donate-section.js"></script>
+</body>
+</html>
