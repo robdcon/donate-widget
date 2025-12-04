@@ -109,8 +109,23 @@ export default function PaymentSection({ amount, donationType, onPaymentSuccess 
 
   return (
     <div className={styles['payment-section']}>
+
+        <button
+          type="submit"
+          className={styles['donate-button']}
+          disabled={isProcessing || !amount}
+        >
+          {isProcessing ? (
+            <>
+              <span className={styles.spinner}></span>
+              <span style={{ marginLeft: '8px' }}>Processing...</span>
+            </>
+          ) : (
+            `Donate £${amount}`
+          )}
+        </button>
       {/* Email field (shared for both payment methods) */}
-      <div className={styles['form-group']}>
+      {/* <div className={styles['form-group']}>
         <label htmlFor="email">Email address *</label>
         <input
           id="email"
@@ -131,11 +146,11 @@ export default function PaymentSection({ amount, donationType, onPaymentSuccess 
             {emailError}
           </span>
         )}
-      </div>
+      </div> */}
 
       {/* Google Pay Button */}
       {/* POC: Simple button, Production: Use Stripe Payment Request Button */}
-      <button
+      {/* <button
         type="button"
         className={styles['donate-button']}
         onClick={handleGooglePay}
@@ -153,14 +168,14 @@ export default function PaymentSection({ amount, donationType, onPaymentSuccess 
         ) : (
           'Pay with Google Pay'
         )}
-      </button>
+      </button> */}
 
-      <div className={styles['section-divider']}>
+      {/* <div className={styles['section-divider']}>
         <span>Or pay by card</span>
-      </div>
+      </div> */}
 
       {/* Card Payment Form */}
-      <form onSubmit={handleCardSubmit} className={styles['card-form']}>
+      {/* <form onSubmit={handleCardSubmit} className={styles['card-form']}>
         <div className={styles['form-group']}>
           <label htmlFor="name">Name on card *</label>
           <input
@@ -214,7 +229,7 @@ export default function PaymentSection({ amount, donationType, onPaymentSuccess 
             `Donate £${amount}`
           )}
         </button>
-      </form>
+      </form> */}
 
       {/* Error Message */}
       {error && (
