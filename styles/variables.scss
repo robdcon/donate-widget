@@ -1,0 +1,43 @@
+// Macmillan Brand Colors
+$macmillan-green: #00853E;
+$macmillan-dark-green: #006B32;
+$macmillan-light-green: #E8F5E9;
+$white: #FFFFFF;
+$grey-100: #F5F5F5;
+$grey-200: #EEEEEE;
+$grey-300: #E0E0E0;
+$grey-700: #616161;
+$grey-900: #212121;
+$error-red: #D32F2F;
+$success-green: #388E3C;
+
+// Typography
+$font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+$font-size-base: 16px;
+$font-size-small: 14px;
+$font-size-large: 18px;
+$font-size-xlarge: 24px;
+
+// Spacing
+$spacing-xs: 8px;
+$spacing-sm: 12px;
+$spacing-md: 16px;
+$spacing-lg: 24px;
+$spacing-xl: 32px;
+
+// Border
+$border-radius: 8px;
+$border-radius-sm: 4px;
+
+// Widget dimensions
+$widget-max-width: 448px;
+$touch-target-min: 44px;
+
+// Shadows
+$shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+$shadow-md: 0 2px 8px rgba(0, 0, 0, 0.15);
+$shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.2);
+
+// Transitions
+$transition-fast: 150ms ease;
+$transition-normal: 300ms ease;

@@ -1,0 +1,319 @@
+@import '../styles/variables';
+
+.donate-widget {
+  background: $white;
+  border-radius: $border-radius;
+  box-shadow: $shadow-lg;
+  max-width: $widget-max-width;
+  width: 100%;
+  padding: $spacing-lg;
+  
+  @media (max-width: 480px) {
+    padding: $spacing-md;
+  }
+}
+
+.widget-header {
+  text-align: center;
+  margin-bottom: $spacing-lg;
+  
+  h1 {
+    font-size: $font-size-xlarge;
+    color: $macmillan-green;
+    margin-bottom: $spacing-sm;
+    font-weight: 700;
+  }
+  
+  p {
+    color: $grey-700;
+    font-size: $font-size-base;
+  }
+}
+
+// Donation Type Tabs
+.donation-type-tabs {
+  display: flex;
+  gap: $spacing-sm;
+  margin-bottom: $spacing-lg;
+  border-bottom: 2px solid $grey-200;
+}
+
+.tab-button {
+  flex: 1;
+  padding: $spacing-md;
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  color: $grey-700;
+  font-size: $font-size-base;
+  font-weight: 500;
+  transition: all $transition-fast;
+  min-height: $touch-target-min;
+  cursor: pointer;
+  
+  &:hover {
+    color: $macmillan-green;
+    background: $macmillan-light-green;
+  }
+  
+  &.active {
+    color: $macmillan-green;
+    border-bottom-color: $macmillan-green;
+    font-weight: 700;
+  }
+}
+
+// Amount Selection
+.amount-selector {
+  margin-bottom: $spacing-lg;
+}
+
+.amount-label {
+  display: block;
+  margin-bottom: $spacing-sm;
+  font-weight: 600;
+  color: $grey-900;
+}
+
+.amount-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $spacing-sm;
+  margin-bottom: $spacing-md;
+}
+
+.amount-button {
+  padding: $spacing-md;
+  background: $white;
+  border: 2px solid $grey-300;
+  border-radius: $border-radius-sm;
+  color: $grey-900;
+  font-size: $font-size-large;
+  font-weight: 600;
+  transition: all $transition-fast;
+  min-height: $touch-target-min;
+  
+  &:hover {
+    border-color: $macmillan-green;
+    background: $macmillan-light-green;
+  }
+  
+  &.selected {
+    background: $macmillan-green;
+    border-color: $macmillan-green;
+    color: $white;
+  }
+}
+
+.custom-amount-input {
+  width: 100%;
+  padding: $spacing-md;
+  border: 2px solid $grey-300;
+  border-radius: $border-radius-sm;
+  font-size: $font-size-large;
+  transition: border-color $transition-fast;
+  
+  &:focus {
+    border-color: $macmillan-green;
+    outline: none;
+  }
+  
+  &::placeholder {
+    color: $grey-700;
+  }
+}
+
+// Impact Message
+.impact-message {
+  background: $macmillan-light-green;
+  border-left: 4px solid $macmillan-green;
+  padding: $spacing-md;
+  margin-bottom: $spacing-lg;
+  border-radius: $border-radius-sm;
+  
+  p {
+    color: $grey-900;
+    font-size: $font-size-base;
+    line-height: 1.6;
+  }
+}
+
+// Payment Section
+.payment-section {
+  margin-top: $spacing-lg;
+}
+
+.section-divider {
+  display: flex;
+  align-items: center;
+  margin: $spacing-lg 0;
+  
+  &::before,
+  &::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: $grey-300;
+  }
+  
+  span {
+    padding: 0 $spacing-md;
+    color: $grey-700;
+    font-size: $font-size-small;
+  }
+}
+
+.google-pay-button {
+  width: 100%;
+  min-height: $touch-target-min;
+  margin-bottom: $spacing-md;
+}
+
+// Card Form
+.card-form {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+  
+  label {
+    font-weight: 600;
+    color: $grey-900;
+    font-size: $font-size-base;
+  }
+  
+  input {
+    padding: $spacing-md;
+    border: 2px solid $grey-300;
+    border-radius: $border-radius-sm;
+    font-size: $font-size-base;
+    transition: border-color $transition-fast;
+    
+    &:focus {
+      border-color: $macmillan-green;
+      outline: none;
+    }
+  }
+}
+
+.stripe-card-element {
+  padding: $spacing-md;
+  border: 2px solid $grey-300;
+  border-radius: $border-radius-sm;
+  transition: border-color $transition-fast;
+  
+  &.focused {
+    border-color: $macmillan-green;
+  }
+}
+
+.donate-button {
+  width: 100%;
+  padding: $spacing-md;
+  background: $macmillan-green;
+  color: $white;
+  font-size: $font-size-large;
+  font-weight: 700;
+  border-radius: $border-radius-sm;
+  min-height: $touch-target-min;
+  transition: background $transition-fast;
+  
+  &:hover:not(:disabled) {
+    background: $macmillan-dark-green;
+  }
+  
+  &:disabled {
+    background: $grey-300;
+    color: $grey-700;
+  }
+}
+
+// Error Message
+.error-message {
+  background: lighten($error-red, 45%);
+  border-left: 4px solid $error-red;
+  padding: $spacing-md;
+  margin-top: $spacing-md;
+  border-radius: $border-radius-sm;
+  color: $error-red;
+  font-size: $font-size-small;
+}
+
+// Success Message
+.success-message {
+  text-align: center;
+  padding: $spacing-xl;
+  
+  .success-icon {
+    width: 64px;
+    height: 64px;
+    background: $success-green;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto $spacing-lg;
+    
+    svg {
+      width: 36px;
+      height: 36px;
+      stroke: $white;
+      stroke-width: 3px;
+    }
+  }
+  
+  h2 {
+    font-size: $font-size-xlarge;
+    color: $grey-900;
+    margin-bottom: $spacing-sm;
+  }
+  
+  p {
+    color: $grey-700;
+    font-size: $font-size-base;
+    line-height: 1.6;
+    margin-bottom: $spacing-md;
+  }
+  
+  .donation-details {
+    background: $grey-100;
+    padding: $spacing-md;
+    border-radius: $border-radius-sm;
+    margin-top: $spacing-lg;
+    
+    .detail-row {
+      display: flex;
+      justify-content: space-between;
+      padding: $spacing-xs 0;
+      
+      span:first-child {
+        color: $grey-700;
+      }
+      
+      span:last-child {
+        font-weight: 600;
+        color: $grey-900;
+      }
+    }
+  }
+}
+
+// Loading Spinner
+.spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: $white;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
