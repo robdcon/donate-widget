@@ -7,7 +7,7 @@ import styles from '../styles/DonateWidget.module.scss';
 import AmountSelector from './AmountSelector';
 import PaymentSection from './PaymentSection';
 import SuccessMessage from './SuccessMessage';
-import { getImpactMessage, getMonthlyImpactMessage } from '../utils/impactMessages';
+import { useImpactStatement } from '../hooks/useImpactStatement';
 import { validateAmount, trackEvent } from '../utils/mockApi';
 
 // Load Stripe (use test key for POC)
@@ -42,6 +42,9 @@ export default function DonateWidget() {
   
   // Error state
   const [amountError, setAmountError] = useState('');
+  
+  // Fetch dynamic impact statement from API
+  const { statement: impactStatement, loading: impactLoading } = useImpactStatement(finalAmount, donationType);
 
   /**
    * Track widget load
@@ -122,19 +125,6 @@ export default function DonateWidget() {
     });
   };
 
-  /**
-   * Get impact message for current amount
-   */
-  const getImpact = () => {
-    if (!finalAmount) return null;
-    
-    if (donationType === 'monthly') {
-      return getMonthlyImpactMessage(finalAmount);
-    }
-    
-    return getImpactMessage(finalAmount);
-  };
-
   // Show success message after donation
   if (isComplete && donationData) {
     return (
@@ -195,7 +185,14 @@ export default function DonateWidget() {
       {/* Impact Message */}
       {finalAmount && !amountError && (
         <div className={styles['impact-message']}>
-          <p>{getImpact()}</p>
+          {impactLoading ? (
+            <p style={{ opacity: 0.6 }}>
+              <span className={styles.spinner} style={{ marginRight: '8px' }}></span>
+              Loading impact...
+            </p>
+          ) : (
+            <p>{impactStatement}</p>
+          )}
         </div>
       )}
 
